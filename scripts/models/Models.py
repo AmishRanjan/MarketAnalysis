@@ -104,8 +104,8 @@ class Models:
 		return (per_test, per_train, acc_test, acc_train)
 
 	def RunAll(self):
-		#models = [self.RunLDA, self.RunLAS, self.RunRIDGE, self.RunKNN, self.RunNB, self.RunRF, self.RunSVM]
-		models = [self.RunSVM] 
+		models = [self.RunLDA, self.RunLAS, self.RunRIDGE, self.RunKNN, self.RunNB, self.RunRF, self.RunSVM]
+		#models = [self.RunSVM] 
 		for model in models:
 			self.accuracy = 0.0
 			#for basic models without validation
