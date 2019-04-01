@@ -5,6 +5,7 @@ from scripts.indicator_calculation.IndicatorCalculator import IndicatorCalculato
 from scripts.models.Models import Models
 from scripts.models.Arima import Arima
 from scripts.models.Garch import Garch
+from scripts.models.Neural import NeuralNetworkModels
 
 dp = DataProcessor()
 wg = Widgets()
@@ -39,10 +40,12 @@ else:
 # -1 in place of features to be updated for auto and manual
 #mod = Models(filename_updated, data_info, -1, prediction_type, predict_col)
 #Models.RunAll(mod)
-#arima_model = Arima(filename_updated, data_info, prediction_type,predict_col)
+arima_model = Arima(filename_updated, data_info, prediction_type,predict_col)
 #arima_model.DickeyFuller()
 #arima_model.ReturnAllPredicted()
-#arima_model.PlotData()
+arima_model.PlotData()
 
-garch_model = Garch(filename_updated, data_info, prediction_type,predict_col)
-garch_model.ReturnAllPredicted()
+#garch_model = Garch(filename_updated, data_info, prediction_type,predict_col)
+#garch_model.ReturnAllPredicted()
+# mod = NeuralNetworkModels(filename_updated, data_info, -1, prediction_type, predict_col)
+# NeuralNetworkModels.RunAll(mod)
