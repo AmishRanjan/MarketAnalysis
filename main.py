@@ -11,22 +11,22 @@ dp = DataProcessor()
 wg = Widgets()
 ic = IndicatorCalculator()
 
-# file_list = DataProcessor.getFileName(dp)
+file_list = DataProcessor.getFileName(dp)
 
 # #get the file name, that needs to be processed
-# file_name = Widgets.askToSelectOption(wg,
-#  		    file_selection_prompt,
-#  		    file_list, (15, 26))
+file_name = Widgets.askToSelectOption(wg,
+  		    file_selection_prompt,
+  		    file_list, (15, 26))
 # #get the format of file
-# header_format = Widgets.userEntry(wg, file_format_prompt, header, enter_button_text)
+header_format = Widgets.userEntry(wg, file_format_prompt, header, enter_button_text)
 
-# DataProcessor.imputeData(dp, file_name, header_format, header)
+DataProcessor.imputeData(dp, file_name, header_format, header)
 
-# IndicatorCalculator.calculate_indicators(ic, file_name)
-file_name = "NIFTY-I.csv"
+IndicatorCalculator.calculate_indicators(ic, file_name)
+#file_name = "NIFTY-I.csv"
 # #get the data and split info
-#data_info = Widgets.userEntry(wg, train_test_split_prompt, data_info_prompt, enter_button_text)
-data_info = ["600","60","10","10","10"]
+data_info = Widgets.userEntry(wg, train_test_split_prompt, data_info_prompt, enter_button_text)
+#data_info = ["600","60","10","10","10"]
 #get the type of prediction
 prediction_type = Widgets.scrollbar(wg, prediction_type_prompt, prediction_type_option)
 

@@ -40,7 +40,7 @@ class Models:
 			self.oc_col = [7,8]
 		elif(prediction_type[:11] == "Close/Close"):
 			self.prediction_type = "cc"
-			self.features_col = list(range(8,119))
+			nself.features_col = list(range(8,119))
 			self.oc_col = [2,5]
 
 		self.data = np.genfromtxt(self.filepath+self.filename ,delimiter = ',' , autostrip = True)	
@@ -205,8 +205,9 @@ class Models:
 		accuracy 		= self.ComputeAccuracy(cnf_mat_test, cnf_mat_train, name, actual_dist,1)
 
 	def RunRF(self):
+		#try changing other hyper-parameters like min_sample_split, it would boost the result
 		name = "Random Forest"
-		param_grid =  [{ 'n_estimators': [100*i for i in range(1,5)]}]
+		param_grid =  [{ 'n_estimators': [50*i for i in range(1,8)]}]
 		model = RandomForestClassifier()
 		clf = model_selection.GridSearchCV(model, param_grid, scoring=None, cv = TimeSeriesSplit(n_splits = 5))
 		clf.fit(self.x_train, self.y_train)
